@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Gerenciador</display-name>
+  <welcome-file-list>
+    <welcome-file>bem-vindo.html</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-class>br.com.gerenciador.sevlet.FirstServlet</servlet-class>
+  	<servlet-name>qualquerCoisa</servlet-name>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>qualquerCoisa</servlet-name>
+  	<url-pattern>/hi</url-pattern>
+  </servlet-mapping>  
+    <filter>
+  	<filter-class>br.com.gerenciador.sevlet.MonitorFilter</filter-class>
+  	<filter-name>MonitorFilter</filter-name>
+  </filter>
+  
+  <filter-mapping>
+  	<url-pattern>/entre</url-pattern>
+  	<filter-name>MonitorFilter</filter-name>
+  </filter-mapping>
+  <filter>
+  	<filter-class>br.com.gerenciador.sevlet.AutorizationFilter</filter-class>
+  	<filter-name>autorizationFilter</filter-name>
+  </filter>
+  
+  <filter-mapping>
+  	<url-pattern>/entre</url-pattern>
+  	<filter-name>autorizationFilter</filter-name>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-class>br.com.gerenciador.sevlet.ControllerFilter</filter-class>
+  	<filter-name>controllerFilter</filter-name>
+  </filter>
+  
+  <filter-mapping>
+  	<url-pattern>/entre</url-pattern>
+  	<filter-name>controllerFilter</filter-name>
+  </filter-mapping>
+</web-app>
